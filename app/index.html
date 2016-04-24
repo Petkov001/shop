@@ -1,0 +1,54 @@
+<html ng-app="shopApp">
+	<header>
+		<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
+		<script src="libs/angular/angular.js"></script>
+  		<script src="js/controllers.js"></script>
+		<title>Shop</title>
+	</header>
+	<body ng-controller="ProductListCtrl">	
+
+		<form class="form-inline">
+		  <div class="form-group">
+		    <label for="productName">Name</label>
+		    <input type="text" class="form-control" id="productName" placeholder="Name" ng-model="product.name">
+		  </div>
+		  <div class="form-group">
+		    <label for="productDescription">Description</label>
+		    <input type="text" class="form-control" id="productDescription" placeholder="Description" ng-model="product.description">
+		  </div>
+		  <div class="form-group">
+		    <label for="productPrice">Price</label>
+		    <input type="text" class="form-control" id="productPrice" placeholder="Price" ng-model="product.price">
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+		<h2>Search field</h2>
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" ng-model="query" placeholder="Search">
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+		<table class="table table-hover">
+			<tr>
+			    <th>Name</th>
+			    <th>Description</th> 
+			    <th>Price</th>
+			    {{query}}
+			</tr>
+			<tr ng-repeat="product in products | filter:query">
+				<td>{{product.name}}</td>
+				<td>{{product.description}}</td> 
+				<td>{{product.price}}</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
