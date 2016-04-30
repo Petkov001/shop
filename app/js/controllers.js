@@ -11,11 +11,17 @@ shopApp.controller('ProductListCtrl', function ($scope) {
 			name: 'phone',
 			description: 'Samsung S4',
 			price: 125.99
+
 		},
 		{
 			name: 'phone',
 			description: 'Samsung A5',
 			price: 225.99
+		},
+		{
+			name: 'phone',
+			description: 'HTC One S',
+			price: 199.99
 		}
 	];
 });
